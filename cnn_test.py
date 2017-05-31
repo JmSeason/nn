@@ -1,19 +1,11 @@
 import numpy as np
 np.random.seed(1337)  # for reproducibility
-from keras.datasets import mnist
+
+from data_op import *
 from keras.utils import np_utils
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Convolution2D, MaxPooling2D, Flatten
 from keras.optimizers import Adam
-
-def get_mnist_download_data(path):
-    f = np.load(path)
-    x_train = f['x_train']
-    y_train = f['y_train']
-    x_test = f['x_test']
-    y_test = f['y_test']
-    f.close()
-    return (x_train, y_train), (x_test, y_test)
 
 batch_size = 32
 #获取训练\测试数据
